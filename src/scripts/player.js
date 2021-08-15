@@ -15,14 +15,16 @@ class Player{
     }
 
     drawPlayer(ctx) {
+
         ctx.drawImage(this.playerImg, this.x, this.y, this.height, this.width);
     }
 
-    movePlayer(){
+    // movePlayer(){
 
-    }
+    // }
 
     animate(ctx){
+        // ctx.clearRect(0,0, canvas.width, canvas.height)
         this.movePlayer();
         this.drawPlayer(ctx);
     }
@@ -45,14 +47,14 @@ class Player{
 
     // }
     // animate();
-    registerEvents(){
-        window.addEventListener("keydown", function (e) { //e is the same as event object
-            this.keys[e.key] = true;
-        });
-        window.addEventListener("keyup", function (e) {
-            delete this.keys[e.key];
-        });
-    }
+    // registerEvents(){
+    //     window.addEventListener("keydown", function (e) { //e is the same as event object
+    //         this.keys[e.key] = true;
+    //     });
+    //     window.addEventListener("keyup", function (e) {
+    //         delete this.keys[e.key];
+    //     });
+    // }
     
 };
 
