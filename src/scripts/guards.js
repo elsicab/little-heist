@@ -6,7 +6,7 @@ class Guard{
         this.spriteHeight = 410;
         this.spriteWidth = 312;
         this.x = this.dimensions.width;
-        this.y = Math.random() * this.dimensions.height;
+        this.y = Math.floor(Math.random() * ((this.dimensions.height -100) - 300) + 300);
         this.guardImg = new Image();
         this.guardImg.src = 'src/assets/cop.png';
         this.counter = 0;
@@ -17,7 +17,7 @@ class Guard{
         // ctx.drawImage(this.guardImg, this.x, this.y, this.height, this.width);
         ctx.drawImage(this.guardImg, this.frameX * this.spriteWidth, 
             this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, 
-            this.x, this.y, this.spriteWidth/5, this.spriteHeight/5);
+            this.x, this.y, this.spriteWidth/4, this.spriteHeight/4);
         // this.x--;
         // if(this.x < -100){
         //     this.x = this.dimensions.width
@@ -32,7 +32,7 @@ class Guard{
         }
         //     this.counter = 0; 
         // }
-        if(this.x < this.dimensions.width + this.spriteWidth/5){
+        if(this.x < this.dimensions.width + this.spriteWidth/4){
             this.x -= 1;
         }
         else{
@@ -41,7 +41,7 @@ class Guard{
             
     }
     animate(ctx){
-        ctx.clearRect(this.x, this.y, this.spriteHeight/5, this.spriteWidth) //?
+        // ctx.clearRect(this.x, this.y, this.spriteHeight/5, this.spriteWidth) //?
         this.drawGuard(ctx);
     }
 

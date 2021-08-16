@@ -6,8 +6,9 @@ class Coins{
         this.frameY = 0; 
         this.spriteHeight = 1151;
         this.spriteWidth = 171;
-        this.x = Math.random() * this.dimensions.width;
-        this.y = Math.random() * this.dimensions.height;
+        this.x = Math.random() * this.dimensions.width+100;
+        // this.y = Math.random() * (this.dimensions.height);
+        this.y = Math.floor(Math.random() * (this.dimensions.height - 300) + 300);
         this.coinImg = new Image();
         this.coinImg.src = 'src/assets/coin.png';
         this.counter = 0;
@@ -31,7 +32,7 @@ class Coins{
     }
 
     animate(ctx) {
-        ctx.clearRect(this.x,this.y, this.spriteWidth/10, this.spriteHeight/10)
+        // ctx.clearRect(this.x,this.y, this.spriteWidth/10, this.spriteHeight/10)
         this.drawCoin(ctx);
         
     }

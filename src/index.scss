@@ -5,13 +5,19 @@
     left: 50%;
     transform: translate(-50%, -50%);   
     border-radius: 20px; 
-    background: #c8d6e5;
+    // background: #c8d6e5;
+    background: url('./assets/emptyOffice.jpg');
 
 }
 
-
+h4{
+    color: #efefcb;
+    font-size: 58px;
+    text-align: center;
+    text-shadow: 3px 3px #3ab9dc;
+}
 
 body{
     color: white; 
-    background-color: black;
+    background: #c1f1ff;
 }
