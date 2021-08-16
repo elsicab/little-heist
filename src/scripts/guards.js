@@ -1,26 +1,47 @@
 class Guard{
     constructor(dimensions){
         this.dimensions = dimensions;
-        this.height = 80; 
-        this.width = 80; 
-        this.x = this.dimensions.width-80;
-        this.y = (Math.random() * this.dimensions.height)-20;
-        this.speed = 4;
+        this.frameX = 0; 
+        this.frameY = 0; 
+        this.spriteHeight = 410;
+        this.spriteWidth = 312;
+        this.x = this.dimensions.width;
+        this.y = Math.random() * this.dimensions.height;
         this.guardImg = new Image();
-        this.guardImg.src = 'src/assets/p-run/__Policeman_11. Walk Aim_000.png';
+        this.guardImg.src = 'src/assets/cop.png';
+        this.counter = 0;
 
     }
 
     drawGuard(ctx) {
-        ctx.drawImage(this.guardImg, this.x, this.y, this.height, this.width);
-        this.x--;
-        if(this.x < -100){
-            this.x = this.dimensions.width
+        // ctx.drawImage(this.guardImg, this.x, this.y, this.height, this.width);
+        ctx.drawImage(this.guardImg, this.frameX * this.spriteWidth, 
+            this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, 
+            this.x, this.y, this.spriteWidth/5, this.spriteHeight/5);
+        // this.x--;
+        // if(this.x < -100){
+        //     this.x = this.dimensions.width
+        // }
+        // if(this.counter < 10){
+        //     this.counter ++ 
+        // }else{
+        if (this.frameX < 5) {
+            this.frameX++;
+        } else {
+            this.frameX = 0;
         }
+        //     this.counter = 0; 
+        // }
+        if(this.x < this.dimensions.width + this.spriteWidth/5){
+            this.x -= 1;
+        }
+        else{
+            this.x = this.dimensions.width - this.spriteWidth; //? never comes back 
+        }
+            
     }
     animate(ctx){
-        // ctx.clearRect(0,0, canvas.width, canvas.height)
-        ctx.clearRect(this.x, this.y, this.height, this.width)
+        ctx.clearRect(this.x, this.y, this.spriteHeight/5, this.spriteWidth) //?
         this.drawGuard(ctx);
     }
 

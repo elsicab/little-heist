@@ -17,21 +17,21 @@ class Coins{
         ctx.drawImage(this.coinImg, this.frameX * this.spriteWidth, 
             this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, 
             this.x, this.y, this.spriteWidth/10, this.spriteHeight/10);
-        // if(this.counter < 10){
-        //     this.counter ++ 
-        // }else{
-        //     if (this.frameX < 6) {
-        //         this.frameX++;
-        //     } else {
-        //         this.frameX = 0;
-        //     }
-        //     this.counter = 0; 
-        // }
+        if(this.counter < 2){
+            this.counter ++ 
+        }else{
+            if (this.frameX < 6) {
+                this.frameX++;
+            } else {
+                this.frameX = 0;
+            }
+            this.counter = 0; 
+        }
         
     }
 
     animate(ctx) {
-        // ctx.clearRect(0,0, canvas.width, canvas.height)
+        ctx.clearRect(this.x,this.y, this.spriteWidth/10, this.spriteHeight/10)
         this.drawCoin(ctx);
         
     }

@@ -25,7 +25,6 @@ class Game{
     }
 
     animate(){
-
         this.player.animate(this.ctx);
         this.coin.animate(this.ctx);
         this.guard.animate(this.ctx);
