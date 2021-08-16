@@ -1,6 +1,5 @@
 class Coins{
     constructor(dimensions) {
-        console.log('in player const.');
         this.dimensions = dimensions;
         this.frameX = 2; 
         this.frameY = 0; 

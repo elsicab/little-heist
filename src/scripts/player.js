@@ -1,7 +1,6 @@
 class Player{
 
     constructor(dimensions){
-        console.log('in player const.');
         this.dimensions = dimensions;
         this.frameX = 0; 
         this.frameY = 0; 
