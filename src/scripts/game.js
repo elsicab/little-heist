@@ -12,7 +12,7 @@ class Game{
         this.score = 0;
         this.gameOver = false;
         this.frames = 0;
-        this.playing = false;
+        this.playing = true;
         this.registerEvents();
         this.restart(this.ctx);       
     }
@@ -78,7 +78,7 @@ class Game{
     }
 
     startPause(e){
-        if(e.code === 'Space' && this.gameOver === false){
+        if(e.code === 'Space' && this.gameOver === false && this.frames > 1){
             if (this.playing) {
                 this.playing = false;
             } else {
@@ -91,6 +91,7 @@ class Game{
             this.ctx.font = "100px Amatic SC";
             this.ctx.fillText("PAUSED", 350, 300);
         }
+        // if(e.code === "Space")
     };
 
     keyPressed(e){
