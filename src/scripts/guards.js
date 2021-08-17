@@ -34,11 +34,11 @@ class Guard{
         // } else {
         //     this.frameX = 0;
         // }
-        if(this.x < this.dimensions.width + this.spriteWidth/4){
-            this.x -= 1;
+        if(this.x > 0){
+            this.x--;
         }
         else{
-            this.x = this.dimensions.width; //? never comes back 
+            this.x++; //? never comes back 
         }
             
     }

@@ -8,18 +8,14 @@ class Game{
         this.dimensions = { width: canvas.width, height: canvas.height };
         this.registerEvents();
         this.restart(this.ctx); 
-        // this.coins = [];
+        this.coins = [];
         this.score = 0;
       
     }
 
-    restart(ctx){
-        console.log('in restart');
+    restart(){
         this.running = false; 
         this.score = 0;  
-        // ctx.clearRect(0,0, this.dimensions.width, this.dimensions.height);
-        // ctx.fillStyle = "#c8d6e5";
-        // ctx.fillRect(0, 0, canvas.width, canvas.height);
         this.player = new Player(this.dimensions);
         this.coin = new Coins(this.dimensions);
         this.coin2 = new Coins(this.dimensions);
@@ -34,7 +30,6 @@ class Game{
         this.guard = new Guard(this.dimensions);
         this.guard2 = new Guard(this.dimensions)
         // this.coins = [];
-        // console.log(this)
         // this.addCoins();
         this.animate();
     }
@@ -58,12 +53,14 @@ class Game{
         this.ctx.fillText("Score: "+ this.score, 20, 40);
     }
 
-    // addCoins(){
-    //     for(let i = 0; i < 10; i++){
-    //         console.log(this)
-    //         this.coins.push(new Coins(this.dimensions));
-    //     }
-    // }
+    addCoins(){
+        for(let i = 0; i < 10; i++){
+            console.log(this)
+            this.coins.push(new Coins(this.dimensions));
+            this.coins[i].drawCoin(this.ctx);
+            
+        }
+    }
 
     animate(){
         this.ctx.clearRect(0,0, this.dimensions.width, this.dimensions.height);
