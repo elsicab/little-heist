@@ -5,6 +5,8 @@ class Player{
         this.frameX = 0; 
         this.spriteHeight = 625;
         this.spriteWidth = 625;
+        this.height = 100;
+        this.width = 100;
         this.x = 0;
         this.y = 460;
         this.playerImg = new Image();
@@ -61,14 +63,4 @@ class Player{
     
     
 };
-// window.addEventListener('keydown', function(e){
-//     keys[e.key] = true;
-// });
-// window.addEventListener('keyup', function(e){
-//     delete keys[e.key];
-// });
-
-
-
-
 export default Player;

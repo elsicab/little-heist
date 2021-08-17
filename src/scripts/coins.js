@@ -5,6 +5,8 @@ class Coins{
         this.frameY = 0; 
         this.spriteHeight = 1151;
         this.spriteWidth = 171;
+        this.height = 100;
+        this.width = 100;
         this.x = Math.random() * this.dimensions.width+100;
         this.y = Math.floor(Math.random() * ((this.dimensions.height -120) - 300) + 300);
         this.coinImg = new Image();

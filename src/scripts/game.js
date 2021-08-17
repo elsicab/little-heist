@@ -13,11 +13,10 @@ class Game{
         this.gameOver = false;
         this.frames = 0;
         this.registerEvents();
-        this.restart(this.ctx); 
-
-      
+        this.restart(this.ctx);       
     }
 
+    
     restart(){
         this.score = 0;  
         this.player = new Player(this.dimensions);
@@ -28,15 +27,30 @@ class Game{
         this.animate();
     }
 
+    collisionDetection(obj1, obj2){
+        if( !( obj1.x > obj2.x + obj2.width ||
+                obj1.x + obj1.width < obj2.x ||
+                obj1.y > obj2.y + obj2.height ||
+                obj1.y + obj1.height < obj2.y)){
+            return true;
+        };
+    };
+
     handleCoins(ctx){
         if(this.frames % 150 === 0){
             this.coinArr.push(new Coins(this.dimensions));
         }
         for (let i = 0; i < this.coinArr.length; i++) {
             this.coinArr[i].animate(ctx);
-            
-        }
-    }
+            if (this.coinArr[i] && this.player && this.collisionDetection(this.player, this.coinArr[i])) {
+                console.log('collision')
+        
+                this.score += 1;
+                this.coinArr.splice(i, 1);
+                i--; //makes sure next element isnt skipped
+            };
+        };
+    };
 
     handleGuards(ctx){
         // debugger
@@ -68,16 +82,13 @@ class Game{
         this.ctx.font = "30px Lato";
         this.ctx.fillStyle = "#5DADE2";
         this.ctx.fillText("Score: "+ this.score, 20, 40);
+        if(this.gameOver){
+            this.ctx.fillStyle = 'black';
+            this.ctx.font = "90px Lato";
+            this.ctx.fillText("GAME OVER", 135, 330 );
+        }
     }
 
-    // addCoins(){
-    //     for(let i = 0; i < 10; i++){
-    //         console.log(this)
-    //         this.coins.push(new Coins(this.dimensions));
-    //         this.coins[i].drawCoin(this.ctx);
-            
-    //     }
-    // }
 
     animate(){
         this.ctx.clearRect(0,0, this.dimensions.width, this.dimensions.height);
