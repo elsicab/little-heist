@@ -12,9 +12,11 @@ class Game{
         this.score = 0;
         this.gameOver = false;
         this.frames = 0;
+        this.playing = false;
         this.registerEvents();
         this.restart(this.ctx);       
     }
+
 
     
     restart(){
@@ -72,7 +74,24 @@ class Game{
     registerEvents(){
         window.addEventListener("keydown", this.keyPressed.bind(this));
         window.addEventListener("keyup", this.keyReleased.bind(this));
+        window.addEventListener("keypress", this.startPause.bind(this));
     }
+
+    startPause(e){
+        if(e.code === 'Space' && this.gameOver === false){
+            if (this.playing) {
+                this.playing = false;
+            } else {
+                this.playing = true;
+                this.animate();
+            };
+        };
+        if (!this.playing) {
+            this.ctx.fillStyle = 'black';
+            this.ctx.font = "100px Amatic SC";
+            this.ctx.fillText("PAUSED", 350, 300);
+        }
+    };
 
     keyPressed(e){
         this.player.keyDown(e);
@@ -88,26 +107,27 @@ class Game{
         this.ctx.fillText("Score: "+ this.score, 20, 60);
         if(this.gameOver){
             this.ctx.fillStyle = 'black';
-            this.ctx.font = "40px Amatic SC";
-            this.ctx.fillText("GAME OVER", 50, 50 );
+            this.ctx.font = "100px Amatic SC";
+            this.ctx.fillText("GAME OVER", 300, 300 );
         }
     }
 
 
     animate(){
-        this.ctx.clearRect(0,0, this.dimensions.width, this.dimensions.height);
-        this.player.animate(this.ctx);
-        // this.guard.animate(this.ctx);
-        // this.guard2.animate(this.ctx);
-        this.handleGuards(this.ctx);
-        this.handleCoins(this.ctx);
-        this.frames++;
-        this.drawScore();
-        if(!this.gameOver){
-            requestAnimationFrame(this.animate.bind(this));
-        }
-
-    }
+        if(this.playing === true){
+            this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
+            this.player.animate(this.ctx);
+            // this.guard.animate(this.ctx);
+            // this.guard2.animate(this.ctx);
+            this.handleGuards(this.ctx);
+            this.handleCoins(this.ctx);
+            this.frames++;
+            this.drawScore();
+            if (!this.gameOver) {
+                requestAnimationFrame(this.animate.bind(this));
+            };
+        };
+    };
 
     
     

@@ -6,7 +6,7 @@ class Player{
         this.spriteHeight = 625;
         this.spriteWidth = 625;
         this.height = 100;
-        this.width = 100;
+        this.width = 50;
         this.x = 0;
         this.y = 460;
         this.playerImg = new Image();
@@ -40,7 +40,7 @@ class Player{
     }
 
     movePlayer(){
-        if(this.keys['ArrowUp'] && this.y > 200){
+        if(this.keys['ArrowUp'] && this.y > 220){
             this.y -= 2;
         }
         if(this.keys['ArrowDown'] && this.y < this.dimensions.height-140){
