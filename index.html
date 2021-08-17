@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="../src/assets/apple-touch-icon.png"> 
 
     <script src="./dist/main.js"></script>
     <title>Little Heist</title>
@@ -19,30 +20,39 @@
 <body>
     <h1>A Little Heist</h1>
     <section class="game-section">
-        <!-- <div class="game-info">
-            <div class="intro">
-                <h4>Story</h4>
-                <p>This is Robby.</p>
-                <p>Robby needs your help to get a 'little' rich.</p>
-                <p>Guide Robby to the loot and help him avoid those pesky guards.</p>
-            </div> -->
+        <ul class="info">
+            <li id="directions"><img src="./src/assets/apple-touch-icon.png">    <strong>How To Play</strong>
+                <div class="play">
+                    <div>Collect coins to advance.</div>
+                    <div>Don't get caught by those pesky guards.</div>
+                    <br>
+                    <div>Level 1 - 15 coins</div>
+                    <div>Level 2 - 10 coins</div>
+                    <div>Level 3 - 5 coins</div>
+                </div>
+            </li>
+            <br>
+            <br>
+            <li id="controllers"><img src="./src/assets/apple-touch-icon.png">    <strong>Controllers</strong>
+                <div class="controllers">
+                    <div>To <strong>START</strong> press Return/Enter</div>
+                    <div>To <strong>RESTART</strong> press A</div>
+                    <div>To <strong>PAUSE</strong> press the Spacebar</div>
+                    <div><i class="far fa-arrow-alt-circle-up"></i> Move Up</div>
+                    <div><i class="far fa-arrow-alt-circle-down"></i> Move Down</div>
+                    <div><i class="far fa-arrow-alt-circle-left"></i> Move Left</div>
+                    <div><i class="far fa-arrow-alt-circle-right"></i> Move Right</div>
+                </div>
+            </li>
+        </ul>
             <canvas id='canvas' height="650" width="750"></canvas>
             <script type="module" src="./dist/main.js"></script>
-            <!-- <div class="controllers">
-                <h4>Controllers</h4>
-                <div><i class="far fa-arrow-alt-circle-up">      Move Up</i></div>
-                <div><i class="far fa-arrow-alt-circle-down"></i>      Move Down</div>
-                <div><i class="far fa-arrow-alt-circle-left"></i>      Move Left</div>
-                <div><i class="far fa-arrow-alt-circle-right"></i>      Move Right</div>
-                <h4>Rules</h4>
-                <p>Collect coins to pass levels.</p>
-                <p>Don't get cought by the guards.</p>
-            </div> -->
         </div>
     </section>
     <footer>
         <ul class="social-links">
         </ul>
+        <!-- <img src="./src/assets/bank.jpg" class="bank"> -->
     </footer>
     </body>
 </body>

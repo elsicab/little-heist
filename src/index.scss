@@ -5,20 +5,23 @@
     left: 50%;
     transform: translate(-50%, -50%);   
     border-radius: 20px; 
-
 }
 
 h1{
-    color: #efefcb;
+    // color: #efefcb;
+    color: #eeeeb7;
     font-size: 78px;
     text-align: center;
     text-shadow: 3px 3px #3ab9dc;
 }
 
 body{
-    color: white; 
-    background: #c1f1ff;
+    // background: #c1f1ff;
     font-family: 'Amatic SC', cursive;
+    background-image: url("../src/assets/background5.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
 }
 
 .game-section{
@@ -38,3 +41,41 @@ h4{
     text-shadow: 1px 1px #efefcb;
 }
 
+ul{
+    list-style: none;
+    margin-top: 150px;
+}
+
+ul li{
+    font-size: 24px;
+}
+
+li img{
+    width: 50px;
+}
+
+// .bank{
+//     right: 0;
+//     height: 400px;
+//     width: auto;
+//     bottom: 0;
+// }
+
+.controllers, 
+.play{
+    font-size: 20px;
+    display: none;
+    font-weight: bold;
+}
+
+#controllers:hover{
+    .controllers{
+        display: block;
+    }
+}
+
+#directions:hover{
+    .play{
+        display: block;
+    }
+}
