@@ -1,11 +1,6 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
-body {
-  margin: 0;
-  padding: 0;
-}
-
 #canvas {
   border: 5px solid white;
   position: absolute;
@@ -13,12 +8,11 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 20px;
-  background: url("./assets/emptyOffice.jpg");
 }
 
 h1 {
   color: #efefcb;
-  font-size: 58px;
+  font-size: 78px;
   text-align: center;
   text-shadow: 3px 3px #3ab9dc;
 }
@@ -26,6 +20,7 @@ h1 {
 body {
   color: white;
   background: #c1f1ff;
+  font-family: "Amatic SC", cursive;
 }
 
 .game-section {

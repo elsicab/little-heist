@@ -61,9 +61,13 @@ class Game{
         }
         for (let i = 0; i < this.guardsArr.length; i++) {
             // debugger
-            this.guardsArr[i].animate(ctx);            
-        }
-    }
+            this.guardsArr[i].animate(ctx);   
+            if (this.guardsArr[i] && this.player && this.collisionDetection(this.player, this.guardsArr[i])) {
+                // console.log('collision')
+                this.gameOver = true;
+            };         
+        };
+    };
 
     registerEvents(){
         window.addEventListener("keydown", this.keyPressed.bind(this));
@@ -79,13 +83,13 @@ class Game{
     }
 
     drawScore(){
-        this.ctx.font = "30px Lato";
+        this.ctx.font = "40px Amatic SC";
         this.ctx.fillStyle = "#5DADE2";
-        this.ctx.fillText("Score: "+ this.score, 20, 40);
+        this.ctx.fillText("Score: "+ this.score, 20, 60);
         if(this.gameOver){
             this.ctx.fillStyle = 'black';
-            this.ctx.font = "90px Lato";
-            this.ctx.fillText("GAME OVER", 135, 330 );
+            this.ctx.font = "40px Amatic SC";
+            this.ctx.fillText("GAME OVER", 50, 50 );
         }
     }
 
@@ -99,7 +103,9 @@ class Game{
         this.handleCoins(this.ctx);
         this.frames++;
         this.drawScore();
-        requestAnimationFrame(this.animate.bind(this));
+        if(!this.gameOver){
+            requestAnimationFrame(this.animate.bind(this));
+        }
 
     }
 
