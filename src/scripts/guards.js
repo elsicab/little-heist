@@ -18,25 +18,27 @@ class Guard{
         ctx.drawImage(this.guardImg, this.frameX * this.spriteWidth, 
             this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, 
             this.x, this.y, this.spriteWidth/4, this.spriteHeight/4);
-        // this.x--;
-        // if(this.x < -100){
-        //     this.x = this.dimensions.width
-        // }
-        // if(this.counter < 10){
-        //     this.counter ++ 
-        // }else{
-        if (this.frameX < 5) {
-            this.frameX++;
-        } else {
-            this.frameX = 0;
+        if(this.counter < 7){
+            this.counter ++ 
+        }else{
+            if (this.frameX < 8) {
+                this.frameX++;
+            } else {
+                this.frameX = 0;
+            }
+            this.counter = 0; 
         }
-        //     this.counter = 0; 
+            
+        // if (this.frameX < 8) {
+        //     this.frameX++;
+        // } else {
+        //     this.frameX = 0;
         // }
         if(this.x < this.dimensions.width + this.spriteWidth/4){
             this.x -= 1;
         }
         else{
-            this.x = this.dimensions.width - this.spriteWidth; //? never comes back 
+            this.x = this.dimensions.width; //? never comes back 
         }
             
     }

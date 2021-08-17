@@ -7,7 +7,7 @@ class Coins{
         this.spriteWidth = 171;
         this.x = Math.random() * this.dimensions.width+100;
         // this.y = Math.random() * (this.dimensions.height);
-        this.y = Math.floor(Math.random() * (this.dimensions.height - 300) + 300);
+        this.y = Math.floor(Math.random() * ((this.dimensions.height -120) - 300) + 300);
         this.coinImg = new Image();
         this.coinImg.src = 'src/assets/coin.png';
         this.counter = 0;

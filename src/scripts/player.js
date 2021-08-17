@@ -1,6 +1,8 @@
 class Player{
 
     constructor(dimensions){
+        console.log(dimensions.width);
+        console.log(dimensions.height);
         this.dimensions = dimensions;
         this.frameX = 0; 
         this.frameY = 0; 
@@ -20,7 +22,7 @@ class Player{
         ctx.drawImage(this.playerImg, this.frameX * this.spriteWidth, 
             this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, 
             this.x, this.y, this.spriteWidth/4, this.spriteHeight/4);
-        if(this.counter < 3){
+        if(this.counter < 7){
             this.counter ++ 
         }else{
             if (this.frameX < 5) {
@@ -41,17 +43,17 @@ class Player{
     }
 
     movePlayer(){
-        if(this.keys['ArrowUp']){
+        if(this.keys['ArrowUp'] && this.y > 200){
             this.y -= 2;
         }
-        if(this.keys['ArrowDown']){
+        if(this.keys['ArrowDown'] && this.y < this.dimensions.height-140){
             this.y += 2;
 
         }
-        if(this.keys['ArrowRight']){
+        if(this.keys['ArrowRight'] && this.x < this.dimensions.width-110){
             this.x += 2;
         }
-        if(this.keys['ArrowLeft']){
+        if(this.keys['ArrowLeft'] && this.x > 0){
             this.x -= 2;
         }
     }
