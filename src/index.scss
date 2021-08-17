@@ -16,7 +16,6 @@ h1{
 }
 
 body{
-    // background: #c1f1ff;
     font-family: 'Amatic SC', cursive;
     background-image: url("../src/assets/background5.jpg");
     background-repeat: no-repeat;
@@ -28,14 +27,6 @@ body{
     display: flex;
 }
 
-.controllers, 
-.intro{
-    color: black;
-    text-align: center;
-    font-size: 18px;
-    margin-left: 10px;
-}
-
 h4{
     font-size: 32px;
     text-shadow: 1px 1px #efefcb;
@@ -44,6 +35,7 @@ h4{
 ul{
     list-style: none;
     margin-top: 150px;
+    margin-left: 50px;
 }
 
 ul li{
@@ -51,7 +43,7 @@ ul li{
 }
 
 li img{
-    width: 50px;
+    width: 60px;
 }
 
 // .bank{
@@ -63,9 +55,30 @@ li img{
 
 .controllers, 
 .play{
-    font-size: 20px;
+    font-size: 24px;
     display: none;
     font-weight: bold;
+}
+
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+}
+
+.social-links{
+    display: flex;
+    justify-content: center;
+}
+
+.links{
+    font-size: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    text-emphasis: none;
 }
 
 #controllers:hover{
