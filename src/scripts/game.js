@@ -6,32 +6,49 @@ class Game{
     constructor(canvas){
         this.ctx = canvas.getContext('2d');
         this.dimensions = { width: canvas.width, height: canvas.height };
+        this.player = new Player(this.dimensions);
+        this.guardsArr = [];
+        this.coinArr = [];
+        this.score = 0;
+        this.gameOver = false;
+        this.frames = 0;
         this.registerEvents();
         this.restart(this.ctx); 
-        this.coins = [];
-        this.score = 0;
+
       
     }
 
     restart(){
-        this.running = false; 
         this.score = 0;  
         this.player = new Player(this.dimensions);
-        this.coin = new Coins(this.dimensions);
-        this.coin2 = new Coins(this.dimensions);
-        this.coin3 = new Coins(this.dimensions);
-        this.coin4 = new Coins(this.dimensions);
-        this.coin5 = new Coins(this.dimensions);
-        this.coin6 = new Coins(this.dimensions);
-        this.coin7 = new Coins(this.dimensions);
-        this.coin8 = new Coins(this.dimensions);
-        this.coin9 = new Coins(this.dimensions);
-        this.coin10 = new Coins(this.dimensions);
-        this.guard = new Guard(this.dimensions);
-        this.guard2 = new Guard(this.dimensions)
+        // this.guard = new Guard(this.dimensions);
+        // this.guard2 = new Guard(this.dimensions)
         // this.coins = [];
         // this.addCoins();
         this.animate();
+    }
+
+    handleCoins(ctx){
+        if(this.frames % 150 === 0){
+            this.coinArr.push(new Coins(this.dimensions));
+        }
+        for (let i = 0; i < this.coinArr.length; i++) {
+            this.coinArr[i].animate(ctx);
+            
+        }
+    }
+
+    handleGuards(ctx){
+        // debugger
+        console.log('HandleGuards')
+         if(this.frames % 250 === 0){
+            this.guardsArr.push(new Guard(this.dimensions));
+            // debugger
+        }
+        for (let i = 0; i < this.guardsArr.length; i++) {
+            // debugger
+            this.guardsArr[i].animate(ctx);            
+        }
     }
 
     registerEvents(){
@@ -53,35 +70,23 @@ class Game{
         this.ctx.fillText("Score: "+ this.score, 20, 40);
     }
 
-    addCoins(){
-        for(let i = 0; i < 10; i++){
-            console.log(this)
-            this.coins.push(new Coins(this.dimensions));
-            this.coins[i].drawCoin(this.ctx);
+    // addCoins(){
+    //     for(let i = 0; i < 10; i++){
+    //         console.log(this)
+    //         this.coins.push(new Coins(this.dimensions));
+    //         this.coins[i].drawCoin(this.ctx);
             
-        }
-    }
+    //     }
+    // }
 
     animate(){
         this.ctx.clearRect(0,0, this.dimensions.width, this.dimensions.height);
         this.player.animate(this.ctx);
-        this.coin.animate(this.ctx);
-        this.coin2.animate(this.ctx);
-        this.coin3.animate(this.ctx);
-        this.coin4.animate(this.ctx);
-        this.coin5.animate(this.ctx);
-        this.coin6.animate(this.ctx);
-        this.coin7.animate(this.ctx);
-        this.coin8.animate(this.ctx);
-        this.coin9.animate(this.ctx);
-        this.coin10.animate(this.ctx);
-        this.guard.animate(this.ctx);
-        this.guard2.animate(this.ctx);
-        // for(let i = 0; i < this.coins.length; i++){
-        //     this.coins[i].animate(this.ctx);
-        //     // console.log(this.coins[i]);
-        // }
-       
+        // this.guard.animate(this.ctx);
+        // this.guard2.animate(this.ctx);
+        this.handleGuards(this.ctx);
+        this.handleCoins(this.ctx);
+        this.frames++;
         this.drawScore();
         requestAnimationFrame(this.animate.bind(this));
 

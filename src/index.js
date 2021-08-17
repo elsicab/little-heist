@@ -1,6 +1,6 @@
 import Game from './scripts/game';
 
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('canvas');
 
     // let ctx = canvas.getContext("2d");

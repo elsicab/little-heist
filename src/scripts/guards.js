@@ -28,34 +28,20 @@ class Guard{
             }
             this.counter = 0; 
         }
-            
-        // if (this.frameX < 8) {
-        //     this.frameX++;
-        // } else {
-        //     this.frameX = 0;
-        // }
-        if(this.x > 0){
+        // if(this.x > 0){
             this.x--;
-        }
-        else{
-            this.x++; //? never comes back 
-        }
+        // }
+        // else{
+        //     this.x++; //? never comes back 
+        // }
             
     }
     animate(ctx){
         // ctx.clearRect(this.x, this.y, this.spriteHeight/5, this.spriteWidth) //?
         this.drawGuard(ctx);
     }
-
     
 };
-
-// window.addEventListener("keydown", function (e){ //e is the same as event object
-//     keys[e.key] = true;
-// });
-// window.addEventListener("keyup", function (e) { 
-//     delete keys[e.key];
-// });
 
 
 export default Guard;

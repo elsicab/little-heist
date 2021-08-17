@@ -10,7 +10,6 @@ class Coins{
         this.coinImg = new Image();
         this.coinImg.src = 'src/assets/coin.png';
         this.counter = 0;
-        this.distance;
     }
 
     drawCoin(ctx) {
