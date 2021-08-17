@@ -39,13 +39,13 @@ class Game{
     };
 
     handleCoins(ctx){
-        if(this.frames % 150 === 0){
+        if(this.frames % 110 === 0){
             this.coinArr.push(new Coins(this.dimensions));
         }
         for (let i = 0; i < this.coinArr.length; i++) {
             this.coinArr[i].animate(ctx);
             if (this.coinArr[i] && this.player && this.collisionDetection(this.player, this.coinArr[i])) {
-                console.log('collision')
+                console.log('coin collision')
         
                 this.score += 1;
                 this.coinArr.splice(i, 1);
@@ -56,7 +56,7 @@ class Game{
 
     handleGuards(ctx){
         // debugger
-        console.log('HandleGuards')
+        // console.log('HandleGuards')
          if(this.frames % 250 === 0){
             this.guardsArr.push(new Guard(this.dimensions));
             // debugger

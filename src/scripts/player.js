@@ -6,7 +6,7 @@ class Player{
         this.spriteHeight = 625;
         this.spriteWidth = 625;
         this.height = 100;
-        this.width = 50;
+        this.width = 100;
         this.x = 0;
         this.y = 460;
         this.playerImg = new Image();
@@ -49,9 +49,29 @@ class Player{
         }
         if(this.keys['ArrowRight'] && this.x < this.dimensions.width-110){
             this.x += 2;
+            if (this.counter < 7) {
+                this.counter++
+            } else {
+                if (this.frameX < 6 || this.frameX > 10) {
+                    this.frameX = 6
+                } else {
+                    this.frameX++;
+                }
+                this.counter = 0;
+            }
         }
         if(this.keys['ArrowLeft'] && this.x > 0){
             this.x -= 2;
+            if (this.counter < 7) {
+                this.counter++
+            } else {
+                if (this.frameX < 12 || this.frameX > 16) {
+                    this.frameX = 12
+                } else {
+                    this.frameX++;
+                }
+                this.counter = 0;
+            }
         }
     }
 
