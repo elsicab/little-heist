@@ -61,6 +61,7 @@ footer {
   bottom: 0;
   width: 100%;
   color: white;
+  text-decoration: none;
 }
 
 .social-links {
@@ -69,11 +70,8 @@ footer {
 }
 
 .links {
-  font-size: 30px;
   padding-left: 15px;
   padding-right: 15px;
-  color: white;
-  text-emphasis: none;
 }
 
 #controllers:hover .controllers {

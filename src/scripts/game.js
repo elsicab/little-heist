@@ -13,6 +13,7 @@ class Game{
         this.gameOver = false;
         this.frames = 0;
         this.playing = true;
+        this.start = false;
         this.registerEvents();
         this.restart(this.ctx);       
     }
@@ -22,10 +23,6 @@ class Game{
     restart(){
         this.score = 0;  
         this.player = new Player(this.dimensions);
-        // this.guard = new Guard(this.dimensions);
-        // this.guard2 = new Guard(this.dimensions)
-        // this.coins = [];
-        // this.addCoins();
         this.animate();
     }
 
@@ -55,17 +52,12 @@ class Game{
     };
 
     handleGuards(ctx){
-        // debugger
-        // console.log('HandleGuards')
          if(this.frames % 250 === 0){
             this.guardsArr.push(new Guard(this.dimensions));
-            // debugger
         }
         for (let i = 0; i < this.guardsArr.length; i++) {
-            // debugger
             this.guardsArr[i].animate(ctx);   
             if (this.guardsArr[i] && this.player && this.collisionDetection(this.player, this.guardsArr[i])) {
-                // console.log('collision')
                 this.gameOver = true;
             };         
         };
@@ -78,6 +70,11 @@ class Game{
     }
 
     startPause(e){
+        if(e.code === 'Enter' && this.frames < 2){
+            this.start = true;
+            this.animate();
+        }
+
         if(e.code === 'Space' && this.gameOver === false && this.frames > 1){
             if (this.playing) {
                 this.playing = false;
@@ -115,7 +112,7 @@ class Game{
 
 
     animate(){
-        if(this.playing === true){
+        if (this.start === true && this.playing === true) {
             this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
             this.player.animate(this.ctx);
             // this.guard.animate(this.ctx);
@@ -127,7 +124,11 @@ class Game{
             if (!this.gameOver) {
                 requestAnimationFrame(this.animate.bind(this));
             };
-        };
+        }else if(!this.start){
+            this.ctx.fillStyle = 'black';
+            this.ctx.font = "60px Amatic SC";
+            this.ctx.fillText("Give little Robby a hand...", 100, 500);
+        }
     };
 
     
