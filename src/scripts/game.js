@@ -14,6 +14,8 @@ class Game{
         this.frames = 0;
         this.playing = true;
         this.start = false;
+        this.level = 1;
+        this.win = false;
         this.registerEvents();
         this.restart();       
     }
@@ -41,15 +43,25 @@ class Game{
     };
 
     handleCoins(ctx){
-        if(this.frames % 110 === 0){
-            this.coinArr.push(new Coins(this.dimensions));
-        }
+        if (this.level> 1) {
+            if (this.frames % 100 === 0) {
+                this.coinArr.push(new Coins(this.dimensions));
+            }
+        }else{
+            if(this.frames % 50 === 0){
+                this.coinArr.push(new Coins(this.dimensions));
+            }
+        };
         for (let i = 0; i < this.coinArr.length; i++) {
             this.coinArr[i].animate(ctx);
             if (this.coinArr[i] && this.player && this.collisionDetection(this.player, this.coinArr[i])) {
                 console.log('coin collision')
         
                 this.score += 1;
+                if(this.score > 14){
+                    this.win = true;
+                    this.gameOver = true;
+                }
                 this.coinArr.splice(i, 1);
                 i--; //makes sure next element isnt skipped
             };
@@ -57,8 +69,18 @@ class Game{
     };
 
     handleGuards(ctx){
-         if(this.frames % 250 === 0){
-            this.guardsArr.push(new Guard(this.dimensions));
+        if(this.level === 1){
+            if(this.frames % 250 === 0){
+                this.guardsArr.push(new Guard(this.dimensions));
+            }
+        } else if (this.level === 2){
+            if (this.frames % 200 === 0) {
+                this.guardsArr.push(new Guard(this.dimensions));
+            }
+        }else{
+            if (this.frames % 100 === 0) {
+                this.guardsArr.push(new Guard(this.dimensions));
+            }
         }
         for (let i = 0; i < this.guardsArr.length; i++) {
             this.guardsArr[i].animate(ctx);   
@@ -97,8 +119,7 @@ class Game{
             this.ctx.fillStyle = 'black';
             this.ctx.font = "100px Amatic SC";
             this.ctx.fillText("PAUSED", 350, 300);
-        }
-        // if(e.code === "Space")
+        };
     };
 
     keyPressed(e){
@@ -110,13 +131,30 @@ class Game{
     }
 
     drawScore(){
+        if(this.score > 4){
+            this.level = 2;
+        }
+        if(this.score > 9){
+            this.level = 3
+        }
         this.ctx.font = "40px Amatic SC";
         this.ctx.fillStyle = "#5DADE2";
         this.ctx.fillText("Score: "+ this.score, 20, 60);
-        if(this.gameOver){
+        this.ctx.fillText("Level: " + this.level, 160, 60);
+
+        // if(this.gameOver){
+        //     this.ctx.fillStyle = 'black';
+        //     this.ctx.font = "100px Amatic SC";
+        //     this.ctx.fillText("GAME OVER", 300, 300 );
+        // }
+        if (this.win) {
             this.ctx.fillStyle = 'black';
             this.ctx.font = "100px Amatic SC";
-            this.ctx.fillText("GAME OVER", 300, 300 );
+            this.ctx.fillText("YOU WON", 300, 300);
+        }else if(this.gameOver){
+            this.ctx.fillStyle = 'black';
+            this.ctx.font = "100px Amatic SC";
+            this.ctx.fillText("GAME OVER", 300, 300);
         }
     }
 
@@ -125,8 +163,6 @@ class Game{
         if (this.start === true && this.playing === true) {
             this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
             this.player.animate(this.ctx);
-            // this.guard.animate(this.ctx);
-            // this.guard2.animate(this.ctx);
             this.handleGuards(this.ctx);
             this.handleCoins(this.ctx);
             this.frames++;
