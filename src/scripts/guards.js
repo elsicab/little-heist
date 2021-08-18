@@ -3,8 +3,8 @@ class Guard{
         this.dimensions = dimensions;
         this.frameX = 0; 
         this.frameY = 0; 
-        this.height = 100;
-        this.width = 100;
+        this.height = 60;
+        this.width = 60;
         this.spriteHeight = 410;
         this.spriteWidth = 312;
         this.x = this.dimensions.width;

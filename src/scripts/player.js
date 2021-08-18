@@ -5,8 +5,8 @@ class Player{
         this.frameX = 0; 
         this.spriteHeight = 625;
         this.spriteWidth = 625;
-        this.height = 100;
-        this.width = 100;
+        this.height = 60;
+        this.width = 60;
         this.x = 0;
         this.y = 460;
         this.playerImg = new Image();

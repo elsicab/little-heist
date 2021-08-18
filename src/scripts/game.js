@@ -136,8 +136,10 @@ class Game{
             };
         }else if(!this.start){
             this.ctx.fillStyle = 'black';
-            this.ctx.font = "60px Amatic SC";
-            this.ctx.fillText("Press ENTER to begin", 500, 550);
+            this.ctx.font = "35px Amatic SC";
+            this.ctx.fillText("Robby the robber is trying to leave the bank....", 400, 450);
+            this.ctx.fillText("Help him escape those pesky guards.", 400, 500);
+            this.ctx.fillText("Press ENTER to start.", 400, 550);
         }
     };
 
