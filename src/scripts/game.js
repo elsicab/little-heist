@@ -102,6 +102,8 @@ class Game{
         
         if(e.code === 'Enter' && this.frames < 2){
             this.start = true;
+            const startGame = document.getElementById('startGame');
+            startGame.style.display = "none";
             this.animate();
         }
 
@@ -171,11 +173,14 @@ class Game{
                 requestAnimationFrame(this.animate.bind(this));
             };
         }else if(!this.start){
-            this.ctx.fillStyle = 'black';
-            this.ctx.font = "35px Amatic SC";
-            this.ctx.fillText("Robby the robber is trying to leave the bank....", 400, 450);
-            this.ctx.fillText("Help him escape those pesky guards.", 400, 500);
-            this.ctx.fillText("Press ENTER to start.", 400, 550);
+            const startGame = document.getElementById('startGame');
+            const startCtx = startGame.getContext('2d');
+            startCtx.fillStyle = 'black';
+            startCtx.font = "30px Amatic SC";
+            startCtx.fillText("Robby the robber is trying to leave the bank....", 20, 50);
+            startCtx.fillText("Help him escape those pesky guards.", 20, 100);
+            startCtx.font = "35px Amatic SC";
+            startCtx.fillText("Press ENTER to start.", 20, 200);
         }
     };
 
