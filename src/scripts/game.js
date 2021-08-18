@@ -55,8 +55,6 @@ class Game{
         for (let i = 0; i < this.coinArr.length; i++) {
             this.coinArr[i].animate(ctx);
             if (this.coinArr[i] && this.player && this.collisionDetection(this.player, this.coinArr[i])) {
-                console.log('coin collision')
-        
                 this.score += 1;
                 if(this.score > 14){
                     this.win = true;
@@ -142,11 +140,6 @@ class Game{
         this.ctx.fillText("Score: "+ this.score, 20, 60);
         this.ctx.fillText("Level: " + this.level, 160, 60);
 
-        // if(this.gameOver){
-        //     this.ctx.fillStyle = 'black';
-        //     this.ctx.font = "100px Amatic SC";
-        //     this.ctx.fillText("GAME OVER", 300, 300 );
-        // }
         if (this.win) {
             this.ctx.fillStyle = 'black';
             this.ctx.font = "100px Amatic SC";
@@ -155,6 +148,8 @@ class Game{
             this.ctx.fillStyle = 'black';
             this.ctx.font = "100px Amatic SC";
             this.ctx.fillText("GAME OVER", 300, 300);
+            this.ctx.font = "50px Amatic SC";
+            this.ctx.fillText("Score: " + this.score, 400, 350);
         }
     }
 
