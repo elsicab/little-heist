@@ -16,6 +16,8 @@ class Game{
         this.start = false;
         this.level = 1;
         this.win = false;
+        this.coinCollect = new Audio('src/assets/coin.mp3');
+        this.gameOverSound = new Audio('src/assets/coin.mp3');
         this.registerEvents();
         this.restart();       
     }
@@ -56,6 +58,8 @@ class Game{
             this.coinArr[i].animate(ctx);
             if (this.coinArr[i] && this.player && this.collisionDetection(this.player, this.coinArr[i])) {
                 this.score += 1;
+                console.log('test');
+                this.coinCollect.play();
                 if(this.score > 14){
                     this.win = true;
                     this.gameOver = true;
@@ -114,6 +118,7 @@ class Game{
             };
         };
         if (!this.playing) {
+            // this.ctx.filter = 'blur(10px)';
             this.ctx.fillStyle = 'black';
             this.ctx.font = "100px Amatic SC";
             this.ctx.fillText("PAUSED", 350, 300);
