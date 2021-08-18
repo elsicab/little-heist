@@ -15,7 +15,7 @@ class Game{
         this.playing = true;
         this.start = false;
         this.registerEvents();
-        this.restart(this.ctx);       
+        this.restart();       
     }
 
 
@@ -23,6 +23,11 @@ class Game{
     restart(){
         this.score = 0;  
         this.player = new Player(this.dimensions);
+        this.guardsArr = [];
+        this.coinArr = [];
+        this.frames = 0;
+        this.gameOver = false;
+        this.playing = true;
         this.animate();
     }
 
@@ -70,9 +75,14 @@ class Game{
     }
 
     startPause(e){
+        
         if(e.code === 'Enter' && this.frames < 2){
             this.start = true;
             this.animate();
+        }
+
+        if(e.code === 'KeyA' && this.start === true){
+            this.restart();
         }
 
         if(e.code === 'Space' && this.gameOver === false && this.frames > 1){
