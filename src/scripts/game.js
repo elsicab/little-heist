@@ -127,7 +127,7 @@ class Game{
         }else if(!this.start){
             this.ctx.fillStyle = 'black';
             this.ctx.font = "60px Amatic SC";
-            this.ctx.fillText("Give little Robby a hand...", 100, 500);
+            this.ctx.fillText("Press ENTER to begin", 500, 550);
         }
     };
 
