@@ -43,7 +43,10 @@ class Game{
                 obj1.y + obj1.height < obj2.y)){
             return true;
         };
+        return false;
     };
+
+    
 
     handleCoins(ctx){
         if (this.level> 1) {
@@ -165,8 +168,8 @@ class Game{
             endContext.font = "100px Amatic SC";
             endContext.fillText("GAME OVER", 300, 150);
             endContext.font = "50px Amatic SC";
-            endContext.fillText("Score: " + this.score, 375, 200);
-            console.log(this.score)
+            endContext.fillText("...You're off to the big house", 375, 200);
+            
         }
     }
 
