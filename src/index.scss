@@ -33,6 +33,17 @@
  
 }
 
+#winGame{
+    border: 5px solid white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+    border-radius: 20px;
+    display: none;
+ 
+}
+
 h1{
     // color: #efefcb;
     color: #eeeeb7;

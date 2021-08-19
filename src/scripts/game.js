@@ -17,6 +17,7 @@ class Game{
         this.start = false;
         this.level = 1;
         this.win = false;
+        this.gameEnded = false;
         // this.coinCollect = new Audio('src/assets/coin.mp3');
         // this.gameOverSound = new Audio('src/assets/coin.mp3');
         this.registerEvents();
@@ -75,9 +76,9 @@ class Game{
                 this.score += 1;
                 // console.log('test');
                 // this.coinCollect.play();
-                if(this.score > 29){
+                if(this.score > 19){
                     this.win = true;
-                    this.gameOver = true;
+                    this.gameEnded = true;
                 }
                 i--; //makes sure next element isnt skipped
             };
@@ -102,6 +103,7 @@ class Game{
             this.guardsArr[i].animate(ctx);   
             if (this.guardsArr[i] && this.player && this.collisionDetectionGuard(this.player, this.guardsArr[i])) {
                 this.gameOver = true;
+                this.gameEnded = true;
             };         
         };
     };
@@ -166,10 +168,15 @@ class Game{
         this.ctx.fillText("Level: " + this.level, 160, 60);
 
         if (this.win) {
-            this.ctx.fillStyle = 'black';
-            this.ctx.font = "100px Amatic SC";
-            this.ctx.fillText("YOU WON", 300, 300);
+            this.canvas.style.display = "none";
+            const winGame = document.getElementById('winGame');
+            winGame.style.display = "block";
+            const winContext = winGame.getContext('2d');
+            winContext.fillStyle = 'black';
+            winContext.font = "95px Amatic SC";
+            winContext.fillText("YOU WON!!", 50, 220);
         }else if(this.gameOver){
+            const startGame = document.getElementById('startGame');
             startGame.style.display = "none";
             const endGame = document.getElementById('endGame');
             endGame.style.display = "block";
@@ -192,7 +199,7 @@ class Game{
             this.handleCoins(this.ctx);
             this.frames++;
             this.drawScore();
-            if (!this.gameOver) {
+            if (!this.gameEnded) {
                 requestAnimationFrame(this.animate.bind(this));
             };
         }else if(!this.start){

@@ -24,6 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     endGame.style.backgroundRepeat = "no-repeat";
     endGame.style.backgroundImage = 'url(' + endImage + ')';
 
+    //Win Game
+    const winGame = document.getElementById('winGame');
+    var winImage = 'src/assets/win.jpg'
+    winGame.style.backgroundRepeat = "no-repeat";
+    winGame.style.backgroundImage = 'url(' + winImage + ')';
 
     new Game(canvas);
 
