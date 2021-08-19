@@ -4,6 +4,7 @@ import Guard from './guards';
 
 class Game{
     constructor(canvas){
+        this.canvas = canvas;
         this.ctx = canvas.getContext('2d');
         this.dimensions = { width: canvas.width, height: canvas.height };
         this.player = new Player(this.dimensions);
@@ -16,8 +17,8 @@ class Game{
         this.start = false;
         this.level = 1;
         this.win = false;
-        this.coinCollect = new Audio('src/assets/coin.mp3');
-        this.gameOverSound = new Audio('src/assets/coin.mp3');
+        // this.coinCollect = new Audio('src/assets/coin.mp3');
+        // this.gameOverSound = new Audio('src/assets/coin.mp3');
         this.registerEvents();
         this.restart();       
     }
@@ -57,14 +58,14 @@ class Game{
         for (let i = 0; i < this.coinArr.length; i++) {
             this.coinArr[i].animate(ctx);
             if (this.coinArr[i] && this.player && this.collisionDetection(this.player, this.coinArr[i])) {
+                this.coinArr.splice(i, 1);
                 this.score += 1;
-                console.log('test');
-                this.coinCollect.play();
-                if(this.score > 14){
+                // console.log('test');
+                // this.coinCollect.play();
+                if(this.score > 19){
                     this.win = true;
                     this.gameOver = true;
                 }
-                this.coinArr.splice(i, 1);
                 i--; //makes sure next element isnt skipped
             };
         };
@@ -76,7 +77,7 @@ class Game{
                 this.guardsArr.push(new Guard(this.dimensions));
             }
         } else if (this.level === 2){
-            if (this.frames % 200 === 0) {
+            if (this.frames % 150 === 0) {
                 this.guardsArr.push(new Guard(this.dimensions));
             }
         }else{
@@ -104,10 +105,14 @@ class Game{
             this.start = true;
             const startGame = document.getElementById('startGame');
             startGame.style.display = "none";
+            this.canvas.style.display = "block";
             this.animate();
         }
 
         if(e.code === 'KeyA' && this.start === true){
+            const endGame = document.getElementById('endGame');
+            endGame.style.display = "none";
+            this.canvas.display = "block";
             this.restart();
         }
 
@@ -136,10 +141,10 @@ class Game{
     }
 
     drawScore(){
-        if(this.score > 4){
+        if(this.score > 9){
             this.level = 2;
         }
-        if(this.score > 9){
+        if(this.score > 14){
             this.level = 3
         }
         this.ctx.font = "40px Amatic SC";
@@ -152,11 +157,16 @@ class Game{
             this.ctx.font = "100px Amatic SC";
             this.ctx.fillText("YOU WON", 300, 300);
         }else if(this.gameOver){
-            this.ctx.fillStyle = 'black';
-            this.ctx.font = "100px Amatic SC";
-            this.ctx.fillText("GAME OVER", 300, 300);
-            this.ctx.font = "50px Amatic SC";
-            this.ctx.fillText("Score: " + this.score, 400, 350);
+            startGame.style.display = "none";
+            const endGame = document.getElementById('endGame');
+            endGame.style.display = "block";
+            const endContext = endGame.getContext('2d');
+            endContext.fillStyle = 'black';
+            endContext.font = "100px Amatic SC";
+            endContext.fillText("GAME OVER", 300, 100);
+            // endContext.font = "50px Amatic SC";
+            // endContext.fillText("Score: " + this.score, 400, 150);
+            console.log(this.score)
         }
     }
 

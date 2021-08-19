@@ -20,6 +20,10 @@
 
 <body>
     <h1>Little Heist</h1>
+    <canvas id="startGame" height="600" width="900"></canvas>
+    <canvas id='canvas' height="600" width="900"></canvas>
+    <canvas id="endGame" height="600" width="900"></canvas>
+    <script type="module" src="./dist/main.js"></script>
     <section class="game-section">
         <ul class="info">
             <li id="directions"><img src="./src/assets/apple-touch-icon.png">    <strong>How To Play</strong>
@@ -28,9 +32,9 @@
                     <div>Collect coins to advance.</div>
                     <div>Don't get caught by those pesky guards.</div>
                     <br>
-                    <div>Level 1 - 5 coins</div>
-                    <div>Level 2 - 10 coins</div>
-                    <div>Level 3 - 15 coins</div>
+                    <div>Level 1 - 10 coins</div>
+                    <div>Level 2 - 15 coins</div>
+                    <div>Level 3 - 20 coins</div>
                 </div>
             </li>
             <br>
@@ -60,10 +64,6 @@
             </li>
                     
         </ul>
-            <canvas id="startGame" height="600" width="900"></canvas>
-            <canvas id='canvas' height="600" width="900"></canvas>
-            <canvas id="endGame" height="600" width="900"></canvas>
-            <script type="module" src="./dist/main.js"></script>
         </div>
     </section>
     </body>

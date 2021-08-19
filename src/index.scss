@@ -7,6 +7,8 @@
     left: 50%;
     transform: translate(-50%, -50%);   
     border-radius: 20px; 
+    display: none;
+
 }
 
 #startGame{
@@ -16,13 +18,8 @@
     left: 50%;
     transform: translate(-50%, -50%);   
     border-radius: 20px;
-    z-index: 2;
-    // background-image: url('../src/assets/bank2.jpg');
-    // display: block;
-}
+    // background-image: url('../src/assets/bank2.jpg')
 
-#startGame p{
-    z-index: 4;
 }
 
 #endGame{
@@ -32,7 +29,8 @@
     left: 50%;
     transform: translate(-50%, -50%);   
     border-radius: 20px;
-    display:none;
+    display: none;
+ 
 }
 
 h1{
@@ -132,4 +130,20 @@ footer{
 
 .social img:hover{
     opacity: 50%;
+}
+
+@media only screen and (max-width: 1720px) {
+  .game-section{
+      font-size: 24px;
+      position: relative;
+      display: inline-block;
+      margin-top: 300px;
+
+  }
+
+  .info{
+      display: flex;
+      text-align: center;
+      margin-top: 450px;
+  }
 }

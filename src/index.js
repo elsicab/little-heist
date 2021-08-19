@@ -17,8 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
     var startImage = 'src/assets/bank2.jpg'
     startGame.style.backgroundRepeat = "no-repeat";
     startGame.style.backgroundImage = 'url(' + startImage + ')';
-    
+
     //End Screen
+    const endGame = document.getElementById('endGame');
+    var endImage = 'src/assets/gameOver.jpg'
+    endGame.style.backgroundRepeat = "no-repeat";
+    endGame.style.backgroundImage = 'url(' + endImage + ')';
 
 
     new Game(canvas);
