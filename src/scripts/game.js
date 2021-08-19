@@ -163,9 +163,9 @@ class Game{
             const endContext = endGame.getContext('2d');
             endContext.fillStyle = 'black';
             endContext.font = "100px Amatic SC";
-            endContext.fillText("GAME OVER", 300, 100);
-            // endContext.font = "50px Amatic SC";
-            // endContext.fillText("Score: " + this.score, 400, 150);
+            endContext.fillText("GAME OVER", 300, 150);
+            endContext.font = "50px Amatic SC";
+            endContext.fillText("Score: " + this.score, 375, 200);
             console.log(this.score)
         }
     }
