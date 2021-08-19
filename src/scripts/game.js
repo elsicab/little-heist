@@ -34,6 +34,7 @@ class Game{
         this.frames = 0;
         this.gameOver = false;
         this.playing = true;
+        this.gameEnded = false;
         this.animate();
     }
 
