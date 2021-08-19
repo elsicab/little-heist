@@ -37,18 +37,18 @@ class Game{
     }
 
     collisionDetection(obj1, obj2){
-        if( !( obj1.x > obj2.x + obj2.width ||
-                obj1.x + obj1.width < obj2.x ||
-                obj1.y > obj2.y + obj2.height ||
-                obj1.y + obj1.height < obj2.y)){
+        if( !( obj1.x > (obj2.x + obj2.width) - 50 ||
+                (obj1.x + obj1.width) - 50 < obj2.x ||
+                obj1.y > (obj2.y + obj2.height) - 20 ||
+                (obj1.y + obj1.height) - 20 < obj2.y)){
             return true;
         };
     };
 
     collisionDetectionGuard(obj1, obj2) {
 
-        if (!(obj1.x > (obj2.x + obj2.width) - 75 ||
-            (obj1.x + obj1.width) - 75 < obj2.x ||
+        if (!(obj1.x > (obj2.x + obj2.width) - 60 ||
+            (obj1.x + obj1.width) - 60 < obj2.x ||
             obj1.y > (obj2.y + obj2.height) - 100 ||
             (obj1.y + obj1.height) - 100 < obj2.y)) {
             return true;
@@ -75,7 +75,7 @@ class Game{
                 this.score += 1;
                 // console.log('test');
                 // this.coinCollect.play();
-                if(this.score > 19){
+                if(this.score > 29){
                     this.win = true;
                     this.gameOver = true;
                 }
@@ -101,16 +101,6 @@ class Game{
         for (let i = 0; i < this.guardsArr.length; i++) {
             this.guardsArr[i].animate(ctx);   
             if (this.guardsArr[i] && this.player && this.collisionDetectionGuard(this.player, this.guardsArr[i])) {
-                console.log('break - player')
-                console.log(this.player.x);
-                console.log(this.player.y);
-                console.log(this.player.height);
-                console.log(this.player.width);
-                console.log('break - guard')
-                console.log(this.guardsArr[i].x);
-                console.log(this.guardsArr[i].y);
-                console.log(this.guardsArr[i].height);
-                console.log(this.guardsArr[i].width);
                 this.gameOver = true;
             };         
         };
@@ -167,7 +157,7 @@ class Game{
         if(this.score > 9){
             this.level = 2;
         }
-        if(this.score > 14){
+        if(this.score > 19){
             this.level = 3
         }
         this.ctx.font = "40px Amatic SC";
