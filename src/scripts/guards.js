@@ -3,10 +3,10 @@ class Guard{
         this.dimensions = dimensions;
         this.frameX = 0; 
         this.frameY = 0; 
-        this.height = 60;
-        this.width = 60;
         this.spriteHeight = 410;
         this.spriteWidth = 312;
+        this.height = this.spriteHeight / 4;
+        this.width = this.spriteWidth / 4;
         this.x = this.dimensions.width;
         this.y = Math.floor(Math.random() * ((this.dimensions.height -100) - 300) + 300);
         this.guardImg = new Image();

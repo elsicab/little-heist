@@ -6,8 +6,8 @@ class Player{
         this.frameY = 0;
         this.spriteHeight = 625;
         this.spriteWidth = 625;
-        this.height = 60;
-        this.width = 60;
+        this.height = this.spriteHeight / 4;
+        this.width = this.spriteWidth / 4;
         this.x = 0;
         this.y = 460;
         this.playerImg = new Image();
@@ -20,6 +20,8 @@ class Player{
         ctx.drawImage(this.playerImg, this.frameX * this.spriteWidth, 
             this.frameY * this.spriteHeight, this.spriteWidth, this.spriteHeight, 
             this.x, this.y, this.spriteWidth/4, this.spriteHeight/4);
+        // ctx.strokeRect(this.x, this.y, this.frameX * this.spriteWidth,
+        //     this.frameY * this.spriteHeight);
         this.frameY = 1;
         if(this.counter < 7){
             this.counter ++ 

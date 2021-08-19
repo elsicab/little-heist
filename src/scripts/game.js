@@ -43,7 +43,17 @@ class Game{
                 obj1.y + obj1.height < obj2.y)){
             return true;
         };
-        return false;
+    };
+
+    collisionDetectionGuard(obj1, obj2) {
+
+        if (!(obj1.x > (obj2.x + obj2.width) - 75 ||
+            (obj1.x + obj1.width) - 75 < obj2.x ||
+            obj1.y > (obj2.y + obj2.height) - 100 ||
+            (obj1.y + obj1.height) - 100 < obj2.y)) {
+            return true;
+
+        };
     };
 
     
@@ -90,7 +100,17 @@ class Game{
         }
         for (let i = 0; i < this.guardsArr.length; i++) {
             this.guardsArr[i].animate(ctx);   
-            if (this.guardsArr[i] && this.player && this.collisionDetection(this.player, this.guardsArr[i])) {
+            if (this.guardsArr[i] && this.player && this.collisionDetectionGuard(this.player, this.guardsArr[i])) {
+                console.log('break - player')
+                console.log(this.player.x);
+                console.log(this.player.y);
+                console.log(this.player.height);
+                console.log(this.player.width);
+                console.log('break - guard')
+                console.log(this.guardsArr[i].x);
+                console.log(this.guardsArr[i].y);
+                console.log(this.guardsArr[i].height);
+                console.log(this.guardsArr[i].width);
                 this.gameOver = true;
             };         
         };
