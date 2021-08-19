@@ -1,21 +1,21 @@
 # Little Heist
 
 <h3>Background</h3>
-Little Heist is a mini-game which attempts to mimic the style of maze and chase games. The objective is to have the player reach the next level while collecting coins and avoiding the guards. The game ends when the player is spotted and caught by the guard. The game is won when the player makes it to the vault. 
+Little Heist is a mini-game which attempts to mimic the style of a coin collection and obstacle avoidance game. The objective is to have the player reach the next level by collecting coins and avoiding the guards. The game ends when the player is caught by the guard. The game is won when the player collects 30 coins. 
 <ul>
-  <li>Level 1: The player starts at the bank's front door. The objective is to make it to door #2 which will take the player to the next level. The player accomplishes this by avoiding being in the line of sight of the guards and collecting coins on their way to reach the door. </li>
-  <li>Level 2: Follows the same concept as level 1 but this level will increase the difficulty to reach the next level.</li>
-  <li>Level 3: The last level of the game. The difficulty is increased by dimming the visuals and making it more difficult for the player to navigate. In this level, the guards will be replaced with lasers and the player's goal is to reach the vault. </li>
+  <li>Level 1 - 10 coins </li>
+  <li>Level 2 - 20 coins</li>
+  <li>Level 3 - 30 coins</li>
 </ul>
 
 <h3>Functionality & MVPs</h3>
 In Little Heist, users will be able to:
 <ul>
-  <li>Start, pause and quit the game.</li>
+  <li>Start, pause and restart the game.</li>
   <li>Move character up, down, left and right taking rule set into account.</li>
   <li>Interact with guards will move in  unique patterns automatically.</li>
   <li>Walk through coins and collect them automatically.</li>
-  <li>Enter next level by reaching the door and character will automatically enter the next level.</li>
+  <li>Enter next level by collecting a set amount of coins.</li>
   <li>Move through the map without going through walls through game collision logic.In the event of a collision, the player will remain in place until the direction of movement is changed.</li>
   <li>Collide with the guards which will cause an immediate Game Over.</li>
 </ul>

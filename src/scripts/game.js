@@ -77,7 +77,7 @@ class Game{
                 this.score += 1;
                 // console.log('test');
                 // this.coinCollect.play();
-                if(this.score > 19){
+                if(this.score > 29){
                     this.win = true;
                     this.gameEnded = true;
                 }
