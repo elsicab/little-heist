@@ -1,5 +1,7 @@
 # Little Heist
 
+[Live Site](https://elsicab.github.io/little-heist/)
+
 <h3>Background</h3>
 Little Heist is a mini-game which attempts to mimic the style of a coin collection and obstacle avoidance game. The objective is to have the player reach the next level by collecting coins and avoiding the guards. The game ends when the player is caught by the guard. The game is won when the player collects 30 coins. 
 <ul>
