@@ -1,8 +1,6 @@
 # Little Heist
 
-[Live Site](https://elsicab.github.io/little-heist/)
-
-<h3>Background</h3>
+## Background
 Little Heist is a mini-game which attempts to mimic the style of a coin collection and obstacle avoidance game. The objective is to have the player reach the next level by collecting coins and avoiding the guards. The game ends when the player is caught by the guard. The game is won when the player collects 30 coins. 
 <ul>
   <li>Level 1 - 10 coins </li>
@@ -10,7 +8,9 @@ Little Heist is a mini-game which attempts to mimic the style of a coin collecti
   <li>Level 3 - 30 coins</li>
 </ul>
 
-<h3>Functionality & MVPs</h3>
+#### Check it out: [Little Heist](https://elsicab.github.io/little-heist/)
+
+## Functionality & MVPs</h3>
 In Little Heist, users will be able to:
 <ul>
   <li>Start, pause and restart the game.</li>
@@ -27,7 +27,7 @@ In addition, this projet will include:
   <li>An Introduction document describing the game's rules and objective.</li>
 </ul>
 
-<h3>Wireframes</h3>
+## Wireframes 
 <img src="Homepage-2x.png" style="margin-left: 10%; max-width: 500px;">
 <ul>
   <li>Game introduction will detail the main objective of the game as well as its rules.  </li>
@@ -36,7 +36,7 @@ In addition, this projet will include:
   <li>Score will keep track of amount of coins collected.</li>
 </ul>
 
-<h3>Technologies, Libraries, APIs</h3>
+## Technologies, Libraries, APIs
 This project will be implemented with the following technologies:
 <ul>
   <li>Canvas API</li>
@@ -45,7 +45,7 @@ This project will be implemented with the following technologies:
   <li>npm</li>
 </ul>
 
-<h3>Implementation Timeline</h3>
+## Implementation Timeline
 <ul>
   <li>Friday-Sunday: Do initial setup for project and verify that all parts are working. Soend time researching and becoming familiar with Canvas and three.js. By weekend's end, be able to render a preliminary version of the board and basic cells.</li>
   <li>Monday: Spend day working on and perfecting functionality of the board and its cells for level 1. Ensuring the correct actions and rendering are taking place.</li>
@@ -54,7 +54,7 @@ This project will be implemented with the following technologies:
   <li>Thursday: Host game and ensure all works properly. Dedicate time to any last minute adjustments</li>
 </ul>
 
-<h3>Bonus Features</h3>
+## Bonus Features
 Possible future updates may include:
 <ul>
   <li>Add option for player to chose level of difficulty.</li>
