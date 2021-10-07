@@ -118,10 +118,6 @@ footer {
   filter: invert(20%);
 }
 
-#controllers{
-  margin-bottom: 10px;
-}
-
 #controllers:hover .controllers {
   display: block;
 }
@@ -130,17 +126,16 @@ footer {
   display: block;
 }
 
-.info li{
-  cursor: pointer;
-}
-
 .social i {
+  margin-top: 20px;
+  margin-right: 20px;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.6);
   font-size: 50px;
-  margin-right: 20px;
-  margin-top: 20px;
-  cursor: pointer;
+}
+
+.social i:hover {
+  color: #eeeeb7f5;
 }
 
 @media only screen and (max-width: 1720px) {
@@ -148,14 +143,12 @@ footer {
     font-size: 24px;
     position: relative;
     display: inline-block;
-    margin-top: 150px;
-    margin-right: 20px;
+    margin-top: 300px;
   }
 
   .info {
     display: flex;
     text-align: center;
     margin-top: 450px;
-
   }
 }
