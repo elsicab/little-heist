@@ -46,10 +46,31 @@ class Player{
     movePlayer(){
         if(this.keys['ArrowUp'] && this.y > 220){
             this.y -= 2;
+            this.frameY = 0;
+            if (this.counter < 7) {
+                this.counter++
+            } else {
+                if (this.frameX < 5) {
+                    this.frameX++;
+                } else {
+                    this.frameX = 0;
+                }
+                this.counter = 0;
+            }
         }
         if(this.keys['ArrowDown'] && this.y < this.dimensions.height-140){
             this.y += 2;
-
+            this.frameY = 0;
+            if (this.counter < 7) {
+                this.counter++
+            } else {
+                if (this.frameX < 5) {
+                    this.frameX++;
+                } else {
+                    this.frameX = 0;
+                }
+                this.counter = 0;
+            }
         }
         if(this.keys['ArrowRight'] && this.x < this.dimensions.width-110){
             this.x += 2;
