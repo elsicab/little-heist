@@ -66,7 +66,7 @@ handleGuards(ctx){
 ```
 
 ## Wireframes 
-<img src="Homepage-2x.png" style="margin-left: 10%; max-width: 500px;">
+<img src="Homepage-2x.png" style="margin-left: 10%; max-width: 300px;">
 * Game introduction will detail the main objective of the game as well as its rules.  
 * Controls will include the Start, Pause and Quit buttons.
 * Links will include links to the Github repo as well as my LinkedIn. 
