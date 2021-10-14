@@ -18,8 +18,6 @@ class Game{
         this.level = 1;
         this.win = false;
         this.gameEnded = false;
-        // this.coinCollect = new Audio('src/assets/coin.mp3');
-        // this.gameOverSound = new Audio('src/assets/coin.mp3');
         this.registerEvents();
         this.restart();       
     }
@@ -58,8 +56,6 @@ class Game{
         };
     };
 
-    
-
     handleCoins(ctx){
         if (this.level> 1) {
             if (this.frames % 100 === 0) {
@@ -75,8 +71,6 @@ class Game{
             if (this.coinArr[i] && this.player && this.collisionDetection(this.player, this.coinArr[i])) {
                 this.coinArr.splice(i, 1);
                 this.score += 1;
-                // console.log('test');
-                // this.coinCollect.play();
                 if(this.score > 29){
                     this.win = true;
                     this.gameEnded = true;
@@ -113,7 +107,14 @@ class Game{
         window.addEventListener("keydown", this.keyPressed.bind(this));
         window.addEventListener("keyup", this.keyReleased.bind(this));
         window.addEventListener("keypress", this.startPause.bind(this));
+        window.addEventListener("keydown", this.preventScrolling.bind(this));
     }
+
+    preventScrolling(e){
+        if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1){ 
+                e.preventDefault();
+            }
+        };
 
     startPause(e){
         
@@ -149,6 +150,7 @@ class Game{
     };
 
     keyPressed(e){
+
         this.player.keyDown(e);
     }
 
