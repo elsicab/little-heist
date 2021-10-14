@@ -1,4 +1,7 @@
 # Little Heist
+Coin collection and obstacle avoidance mini-game.
+
+![App Overview Gid](https://media.giphy.com/media/YAs2TAr98EAAVLoEjQ/giphy.gif)
 
 ## Background
 Little Heist is a mini-game which attempts to mimic the style of a coin collection and obstacle avoidance game. The objective is to have the player reach the next level by collecting coins and avoiding the guards. The game ends when the player is caught by the guard. The game is won when the player collects 30 coins. 
