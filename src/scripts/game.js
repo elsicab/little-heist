@@ -142,7 +142,6 @@ class Game{
             };
         };
         if (!this.playing) {
-            // this.ctx.filter = 'blur(10px)';
             this.ctx.fillStyle = 'black';
             this.ctx.font = "100px Amatic SC";
             this.ctx.fillText("PAUSED", 350, 300);
